@@ -1,14 +1,10 @@
 import streamlit as st
 import numpy as np
-import locale
 import pandas as pd
 
-# Configurar o locale para o formato brasileiro
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-
-# Função para formatar valores monetários
+# Função para formatar valores monetários manualmente
 def formatar_moeda(valor):
-    return locale.currency(valor, grouping=True)
+    return f"R$ {valor:,.2f}".replace(",", "v").replace(".", ",").replace("v", ".")
 
 # Função para converter entrada de texto formatada para float
 def converter_para_float(valor_texto):
